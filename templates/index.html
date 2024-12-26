@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator & Reader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="generator">Generate QR</button>
+            <button class="tab-btn" data-tab="reader">Read QR</button>
+        </div>
+
+        <div class="tab-content active" id="generator">
+            <h2>Generate QR Code</h2>
+            <div class="input-group">
+                <input type="text" id="qr-text" placeholder="Enter text or URL">
+                <button id="generate-btn">Generate</button>
+            </div>
+            <div id="qr-result">
+                <img id="qr-image" src="" alt="">
+                <a id="download-link" download="qr-code.png" href="">Download QR Code</a>
+            </div>
+        </div>
+
+        <div class="tab-content" id="reader">
+            <h2>Read QR Code</h2>
+            <div class="upload-area" id="drop-zone">
+                <input type="file" id="file-input" accept="image/*">
+                <p>Drop image here or click to upload</p>
+            </div>
+            <div id="reader-result"></div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
